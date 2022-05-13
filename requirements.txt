@@ -1,0 +1,8 @@
+Flask==2.0.3
+Flask_Cors==3.0.10
+Flask_RESTful==0.3.9
+flask_swagger_ui==3.36.0
+marshmallow==3.15.0
+pymongo==4.0.2
+requests==2.27.1
+gunicorn

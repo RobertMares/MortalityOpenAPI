@@ -1,0 +1,1002 @@
+{
+    "openapi" : "3.0.0",
+    "info" : {
+            "decription" : "API desc",
+            "version" : "1.0.0",
+            "title" : "Open API for Mexico's Mortality Open Data (2012-2020)",
+            "contact" : {
+                "name" : "Roberto Mares Ceballos",
+                "email" : "roberto.mares.dev@gmail.com"
+            },
+            "license":{
+                "name" : "OPEN SOURCE",
+                "url" : ""
+            }
+    },
+    "servers": [
+        {
+          "url": "/"
+        }
+    ],
+    "paths": {
+        "/mortality/v.1/mortality-state" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers of a State from 2012 - 2020",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "required": true,
+                        "description" : "The number of the Entity of ocurrence",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/state"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-state-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers of a State and Year",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Entity",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/state"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of State",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-scholarship-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Scholarship and Year",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "scholarship",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Scholarship",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/scholarship"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-scholarship-state" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Scholarship and State",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "scholarship",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Scholarship",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/scholarship"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of State",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/state"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-sex-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Sex and Year",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "sex",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Sex",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/sex"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-sex-state" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Sex and State",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "sex",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Sex",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/sex"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of State",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/state"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-medical-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Medical Attention and Year",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "medical",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Sex",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/medical"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-age-range" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Age range",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "age",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Age range",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/age"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/mortality-age-range-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Age range and specific Year",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "age",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Age range",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/age"
+                        }
+                    },
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/top-morbidity" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Top 10 Morbiditys, from Lista Mex. From 2012-2020.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/top-morbidity-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Top 10 Morbiditys from Lista Mex, and specific Year.",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/top-mortality-states" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Top 10 States, from 2012-2020.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        },
+        "/mortality/v.1/top-mortality-states-year" : {
+            "get": {
+                "tags": [
+                  "API Requests"
+                ],
+                "summary": "Gets the mortality registers based on Top 10 States specific Year (2012-2020).",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "year",
+                        "type" : "integer",
+                        "required": true,
+                        "description" : "The id of Year",
+                        "schema" :{
+                            "$ref" : "#/components/schemas/parameters/properties/year"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/mortality_register"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Misunderstood Request."
+                    }
+                }
+            }
+        }
+    },
+    "components" : {
+        "schemas" : {
+            "parameters" :{
+                "type" : "object",
+                "properties":{
+                    "state" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "The number of the Entity of ocurrence",
+                        "minimum" : "1",
+                        "maximum" : "35, 99",
+                        "dictionary_name" : "ent_regis : Entidad Registro"
+                    },
+                    "year" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "The year of mortality data",
+                        "minimum" : "2012",
+                        "maximum" : "2020",
+                        "dictionary_name" : "anio_regis : Año Registro"
+                    },
+                    "scholarship" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "Scholarity range of the mortality population",
+                        "minimum" : "1",
+                        "maximum" : "10, 88, 99",
+                        "dictionary_name" : "escolarida : Escolaridad"
+                    },
+                    "sex" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "Registered sex of deceased",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "sexo : Sexo"
+                    },
+                    "medical" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "Medical attention registered for deceased ",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "asist_medi : Asistencia Médica"
+                    },
+                    "age" : {
+                        "type" : "integer",
+                        "format" : "int32",
+                        "required" : true,
+                        "description" : "Age group, ranging from less than a year to 120 years",
+                        "minimum" : "1",
+                        "maximum" : "29, 30",
+                        "dictionary_name" : "edad_agru : Edad Agrupada"
+                    }
+                }
+            },
+            "mortality_register" :{
+                "type" : "object",
+                "properties":{
+                    "ent_regis":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Entity identifier of register",
+                        "minimum" : "1",
+                        "maximum" : "32",
+                        "dictionary_name" : "Entidad Registro",
+                        "catalog" : "decateml"
+                    },
+                    "mun_regis":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality identifier of register",
+                        "minimum" : "1",
+                        "maximum" : "570",
+                        "dictionary_name" : "Municipio Registro",
+                        "catalog" : "decateml"
+                    },
+                    "ent_resid":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Entity identifier of register's residence",
+                        "minimum" : "1",
+                        "maximum" : "35,99",
+                        "dictionary_name" : "Entidad Residencia",
+                        "catalog" : "decateml"
+                    },
+                    "mun_resid":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality identifier of register's residence",
+                        "minimum" : "1",
+                        "maximum" : "570,999",
+                        "dictionary_name" : "Municipio Residencia",
+                        "catalog" : "decateml"
+                    },
+                    "tloc_resid":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality size identifier of register",
+                        "minimum" : "1",
+                        "maximum" : "17,99",
+                        "dictionary_name" : "Tamaño Localidad Residencia",
+                        "catalog" : "detamloc"
+                    },
+                    "loc_resid":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality size identifier of register",
+                        "minimum" : "1",
+                        "maximum" : "17,99",
+                        "dictionary_name" : "Tamaño Localidad Residencia",
+                        "catalog" : "decateml"
+                    },
+                    "ent_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Register ocurrence entity",
+                        "minimum" : "1",
+                        "maximum" : "35, 99",
+                        "dictionary_name" : "Entidad Ocurrencia",
+                        "catalog" : "decateml"
+                    },
+                    "mun_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality ocurrence register",
+                        "minimum" : "1",
+                        "maximum" : "570, 999",
+                        "dictionary_name" : "Municipio Ocurrencia",
+                        "catalog" : "decateml"
+                    },
+                    "tloc_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "description" : "Locality size register ocurrence",
+                        "minimum" : "1",
+                        "maximum" : "17, 99",
+                        "dictionary_name" : "Tamaño de Localidad Ocurrencia",
+                        "catalog" : "detamloc"
+                    },
+                    "loc_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "6999, 9999",
+                        "dictionary_name" : "Clave localidad Ocurrencia",
+                        "catalog" : "decateml"
+                    },
+                    "cause_def":{
+                        "type" : "string",
+                        "format" : "string",
+                        "dictionary_name" : "Causa Defunción (Lista Detallada)",
+                        "catalog" : "decatcausa"
+                    },
+                    "lista_mex":{
+                        "type" : "string",
+                        "format" : "string",
+                        "dictionary_name" : "Causa Defunción (Lista Mexicana)",
+                        "catalog" : "delistmex"
+                    },
+                    "sexo":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Sexo",
+                        "catalog" : "desexo"
+                    },
+                    "edad":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Edad",
+                        "catalog" : "deedad"
+                    },
+                    "dia_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "31, 99",
+                        "dictionary_name" : "Día defunción",
+                        "catalog" : "dedias"
+                    },
+                    "mes_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "12, 99",
+                        "dictionary_name" : "Mes defunción",
+                        "catalog" : "demeses"
+                    },
+                    "anio_ocurr":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "6999, 9999",
+                        "dictionary_name" : "Clave localidad Ocurrencia",
+                        "catalog" : "decateml"
+                    }, 
+                    "dia_regis":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "31, 99",
+                        "dictionary_name" : "Día Registro",
+                        "catalog" : "dedias"
+                    },
+                    "mes_regis":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "12, 99",
+                        "dictionary_name" : "Mes Registro",
+                        "catalog" : "demeses"
+                    },
+                    "anio_regis":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "2012",
+                        "maximum" : "2020",
+                        "dictionary_name" : "Año Registro",
+                        "catalog" : "deaño"
+                    },
+                    "dia_nacim":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "31, 99",
+                        "dictionary_name" : "Día Nacimientto",
+                        "catalog" : "dedias"
+                    },
+                    "mes_nacim":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "12, 99",
+                        "dictionary_name" : "Mes Nacimientto",
+                        "catalog" : "demeses"
+                    },
+                    "anio_nacim":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1900",
+                        "maximum" : "2020",
+                        "dictionary_name" : "Año Nacimientto",
+                        "catalog" : "deaño"
+                    },
+                    "ocupacion":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "11, 97, 98, 99",
+                        "dictionary_name" : "Ocupación",
+                        "catalog" : "deocupa"
+                    },
+                    "escolarida":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "10, 88, 99",
+                        "dictionary_name" : "Escolaridad",
+                        "catalog" : "deesco"
+                    },
+                    "edo_civil":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "6, 8, 9",
+                        "dictionary_name" : "Estado Conyugal",
+                        "catalog" : "deedocony"
+                    },
+                    "presunto":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "5, 8",
+                        "dictionary_name" : "Presunto",
+                        "catalog" : "depresunto"
+                    },
+                    "ocurr_trab":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8, 9",
+                        "dictionary_name" : "Ocurrió Trabajo",
+                        "catalog" : "deocutrab"
+                    },
+                    "lugar_ocur":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8, 9",
+                        "dictionary_name" : "Sitio done ocurrió la lesión",
+                        "catalog" : "desitiolesion"
+                    },
+                    "necropsia":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Necropsia",
+                        "catalog" : "denecrop"
+                    },
+                    "asist_medi":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Asistencia Médica",
+                        "catalog" : "deasismed"
+                    },
+                    "sitio_ocur":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "12, 99",
+                        "dictionary_name" : "Sitio dónde ocurrió la defunción",
+                        "catalog" : "desitiodefun"
+                    },
+                    "cond_cert":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "5, 8, 9",
+                        "dictionary_name" : "Certificada por",
+                        "catalog" : "deccertif"
+                    },
+                    "nacionalid":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Nacionalidad",
+                        "catalog" : "denacion"
+                    },
+                    "derechohab":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "9, 99",
+                        "dictionary_name" : "Derechohabiencia",
+                        "catalog" : "dederech"
+                    },
+                    "embarazo":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "6, 8",
+                        "dictionary_name" : "Condición de embarazo",
+                        "catalog" : "decondemba"
+                    },
+                    "rel_emba":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8",
+                        "dictionary_name" : "Causas relacionada con embarazo",
+                        "catalog" : "derelemba"
+                    },
+                    "horas":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "00",
+                        "maximum" : "23, 99",
+                        "dictionary_name" : "Hora de la defunción",
+                        "catalog" : "dehoradef"
+                    },
+                    "minutos":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "00",
+                        "maximum" : "59, 99",
+                        "dictionary_name" : "Minuto de la defuncion",
+                        "catalog" : "demindef"
+                    },
+                    "capitulo":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Capitulo",
+                        "catalog" : "decapgpo"
+                    },
+                    "grupo":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Grupo",
+                        "catalog" : "decapgpo"
+                    },
+                    "lista1":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Lista1",
+                        "catalog" : "delista1"
+                    },
+                    "gr_lismex":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Grupos lista mexicana",
+                        "catalog" : "degpolisme"
+                    },
+                    "vio_fami":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8, 9",
+                        "dictionary_name" : "Violencia familiar",
+                        "catalog" : "deviofam"
+                    },
+                    "area_ur":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Area urbano real",
+                        "catalog" : "deurbrur"
+                    },
+                    "edad_agru":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "30",
+                        "dictionary_name" : "Edad Agrupada",
+                        "catalog" : "deedadagrup"
+                    },
+                    "complicaro":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8",
+                        "dictionary_name" : "Complicaron el embarazo",
+                        "catalog" : "decomplicaemba"
+                    },
+                    "dia_cert":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "31, 99",
+                        "dictionary_name" : "Día certificación",
+                        "catalog" : "dedias"
+                    },
+                    "mes_cert":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "12, 99",
+                        "dictionary_name" : "Mes de certificación",
+                        "catalog" : "demeses"
+                    },
+                    "anio_cert":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Año de certificación",
+                        "catalog" : "deaño"
+                    },
+                    "maternas":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "dictionary_name" : "Maternas",
+                        "catalog" : "decatcausa"
+                    },
+                    "lengua":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 9",
+                        "dictionary_name" : "Lengua Índigena",
+                        "catalog" : "delenguaindi"
+                    },
+                    "cond_act":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "2, 8, 9",
+                        "dictionary_name" : "Condición actividad económica",
+                        "catalog" : "decondact"
+                    },
+                    "par_agre":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "72, 88, 99",
+                        "dictionary_name" : "Parentesco del presunto agresor",
+                        "catalog" : "deparenagresor"
+                    },
+                    "ent_ocules":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "35, 88, 99",
+                        "dictionary_name" : "Entidad ocurrencioa de la lesión",
+                        "catalog" : "decateml"
+                    },
+                    "mun_ocules":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "570, 888, 999",
+                        "dictionary_name" : "Municipio Ocurrencia de la lesión",
+                        "catalog" : "decateml"
+                    },
+                    "loc_ocules":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "1",
+                        "maximum" : "6999, 8888, 9999",
+                        "dictionary_name" : "Clave Localidad de Ocurrencia de la lesión",
+                        "catalog" : "decateml"
+                    },
+                    "razon_m":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "0",
+                        "maximum" : "1",
+                        "dictionary_name" : "Razón Materna",
+                        "catalog" : "derazonm"
+                    },
+                    "dis_rex_oax":{
+                        "type" : "integer",
+                        "format" : "int32",
+                        "minimum" : "901",
+                        "maximum" : "930, 999",
+                        "dictionary_name" : "Distrito de Oaxaca",
+                        "catalog" : "decateml"
+                    }
+                }
+            }
+        }
+    }
+}
